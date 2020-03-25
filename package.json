@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "podInstall": "cd ios && pod install",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
@@ -12,12 +13,13 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "ton-client-react-native-js": "^0.19.0"
+    "ton-client-react-native-js": "0.21.01"
   },
   "devDependencies": {
     "@babel/core": "7.8.6",
     "@babel/runtime": "7.8.4",
     "@react-native-community/eslint-config": "0.0.5",
+    "@react-native-community/cli-platform-ios": "*",
     "babel-jest": "24.9.0",
     "eslint": "6.8.0",
     "jest": "24.9.0",

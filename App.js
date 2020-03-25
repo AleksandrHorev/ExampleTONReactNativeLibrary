@@ -1,7 +1,7 @@
 // Startup https://reactnative.dev/docs/getting-started.html
+// cd AwesomeProject
 // Install cocopods
-// cd ios//  pod install  
-// cd ..
+// npm run podInstall
 // npm run ios
 
 import React, {Component} from 'react';
