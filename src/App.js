@@ -7,7 +7,7 @@
 import React, {Component} from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import tonClientReactNativeJs from 'ton-client-react-native-js';
+import tonClientReactNativeJs  from 'ton-client-react-native-js';
 
 export default class App extends Component {
   constructor(props) {
