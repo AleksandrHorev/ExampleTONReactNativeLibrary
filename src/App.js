@@ -1,5 +1,4 @@
 // Startup https://reactnative.dev/docs/getting-started.html
-// cd AwesomeProject
 // Install cocopods
 // npm run podInstall
 // npm run ios
@@ -7,7 +6,7 @@
 import React, {Component} from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import tonClientReactNativeJs  from 'ton-client-react-native-js';
+ import tonClientReactNativeJs from 'ton-client-react-native-js'; 
 
 export default class App extends Component {
   constructor(props) {
@@ -19,20 +18,30 @@ export default class App extends Component {
   }
 
   async componentDidMount () {
+    console.log('did mount')
     const client = await this.getClient();
+    console.log('1')
     const accounts = await this.getAccounts(client);
+    console.log('2')
     this.setState({accounts, isLoading: false});
+    console.log('did mount after')
   }
 
   render() {
     if (this.state.isLoading) {
-      return <View style={styles.container}><Text>Loading...</Text></View>
+      return (
+        <View 
+          testID='loading' 
+          style={styles.container}>
+        <Text>Loading...</Text></View>
+      );
     }
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Ton React Native SDK was connected!</Text>
         <Text> The list of accounts:</Text>
         <FlatList
+          testID='list'
           data={this.state.accounts}
           renderItem={({item}) => {
             return (
@@ -54,6 +63,10 @@ export default class App extends Component {
         servers: ['net.ton.dev'],
         log_verbose: false,
     };
+    console.log('before create')
+    const result = await tonClientReactNativeJs.TONClient.create(config);
+    console.log('result')
+    console.log(result)
     return tonClientReactNativeJs.TONClient.create(config);
   }
 

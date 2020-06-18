@@ -5,13 +5,18 @@
  * @format
  */
 
+const { assetExts } = require('metro-config/src/defaults/defaults');
+
 module.exports = {
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
-  },
+    transformer: {
+        getTransformOptions: async () => ({
+            transform: {
+                experimentalImportSupport: false,
+                inlineRequires: false,
+            },
+        }),
+    },
+    resolver: {
+        assetExts: [...assetExts, 'json5'],
+    },
 };
